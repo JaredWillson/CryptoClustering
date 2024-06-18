@@ -1,2 +1,11 @@
 # CryptoClustering
-CryptoClustering
+This repository consists of two components. The first is CSV file called `crypt_market_data.csv` contained within the `Resources` subdirectory that contains price percentage change data for forty-one different cryptocurrencies over different time windows, 24 hours, one week, two week, one month, two month, etc.  The second component is a Jupyter notebook entitled `Crypto_Clustering.ipynb` containing unsupervised clustering analysis of the dataset using K-Means. 
+
+## Intent
+The purpose of the analysis is to determine the number of clusters that provide a best fit on the normalized (scaled) market data, and then to determine whether Principal Component Analysis in order to reduce the number of dimensions has any effect on the K-Means clustering results.
+
+## Summary Result
+The first step in the process was to load the dataset into Pandas to allow easy examination of the raw data. Market data were plotted using HVPlot to look for any outliers. The second step was to use StandardScaler to fit and scale the different dimensions in order to ensure no dimensions were artificially weighted in importance due to the magnitudes of their values. The third step was to determine the number of clusters required in order to effectively represent the scaled dataset using k-means. K values from 1 to 10 were tested in order to determine the point of diminishing returns. A value of 4 was chosen based on graphical representation of inertia. The data were then fit into the four clusters and a cluster value assigned. Finally, Principal Component Analysis was run against the scaled data to reduce the number of dimensions from seven to three, nd the same process of determining the number of K values was followed. As with the full dataset, the point of diminishing returns was four clusters, so clustering was performed on the reduced PCA dataset using that value. The resulting groupings were compared to the original groupings of the scaled data to see if there were any differences. The PCA analysis was able to effectively reduce the number of dimensions in the dataset without impacting the resulting clusters.
+
+## Additional Information
+While all code is my own, the XPert Learning Assistant was used to help with syntax.
